@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "baseline_date": "2026-10-01",
+  "repository": "pedrobritx/ambientis",
+  "project": {
+    "owner": "pedrobritx",
+    "number": 12,
+    "url": "https://github.com/users/pedrobritx/projects/12",
+    "configuration_status": "pending_access"
+  },
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "M0 — Fundação e governança",
+      "description": "Manual, decisões, roadmap e fluxo de contribuição revisados.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M1",
+      "title": "M1 — Base executável e identidade",
+      "description": "App local, CI, autenticação, MFA e isolamento verificados com dados sintéticos.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M2",
+      "title": "M2 — Base Mestra e acervo",
+      "description": "Empresa/unidade, documentos versionados e processos com rastreabilidade.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M3",
+      "title": "M3 — Primeiro fluxo completo de resíduos",
+      "description": "Inventário demonstrável da fonte ao dossiê preliminar; piloto sempre sintético até M7.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M4",
+      "title": "M4 — RAPP e recursos hídricos",
+      "description": "Memórias, regras versionadas e cruzamento de evidências revisados pela responsável técnica.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M5",
+      "title": "M5 — Campo e sincronização",
+      "description": "Captura móvel e recuperação offline verificadas em dispositivos reais.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M6",
+      "title": "M6 — Revisão e dossiê final",
+      "description": "QA-A a QA-G, manifest íntegro, protocolos e recibos com histórico.",
+      "due_on": null,
+      "native_status": "not_created"
+    },
+    {
+      "id": "M7",
+      "title": "M7 — Piloto e operação",
+      "description": "Restauração testada, uso permitido pelo plano, aceite da usuária e operação documentada.",
+      "due_on": null,
+      "native_status": "not_created"
+    }
+  ],
+  "items": [
+    {
+      "id": "GOV-01",
+      "number": 1,
+      "url": "https://github.com/pedrobritx/ambientis/issues/1",
+      "title": "Consolidar manual, arquitetura e decisões do Ambientis",
+      "phase": "M0",
+      "priority": "P0",
+      "area": "docs",
+      "dependencies": [],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Revisar manual e ADRs com Pedro e a responsável técnica.",
+        "Registrar escopo do MVP, decisões aceitas e propostas pendentes.",
+        "Aprovar PR de documentação e manter vínculo com o Project #12."
+      ]
+    },
+    {
+      "id": "GOV-02",
+      "number": 2,
+      "url": "https://github.com/pedrobritx/ambientis/issues/2",
+      "title": "Configurar GitHub Project #12, milestones e proteção de branches",
+      "phase": "M0",
+      "priority": "P0",
+      "area": "governance",
+      "dependencies": [
+        "GOV-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Inspecionar campos, views e itens existentes antes de adicionar.",
+        "Vincular repositório e issues; criar milestones M0–M7 sem datas fictícias.",
+        "Configurar views e automações descritas no guia; validar dois itens de exemplo.",
+        "Aplicar proteção de main compatível com contribuidor único e checks reais."
+      ]
+    },
+    {
+      "id": "OPS-01",
+      "number": 3,
+      "url": "https://github.com/pedrobritx/ambientis/issues/3",
+      "title": "Confirmar elegibilidade dos planos e integração GitHub–Vercel",
+      "phase": "M0",
+      "priority": "P0",
+      "area": "operations",
+      "dependencies": [
+        "GOV-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Confirmar plano do time, vínculo pedrobritx/ambientis, branch main e raiz do app.",
+        "Decidir hospedagem permitida para uso profissional antes de dados reais.",
+        "Registrar limites, responsável e teto de custos sem contratar automaticamente.",
+        "Validar configuração de previews sem acesso ao banco de produção."
+      ]
+    },
+    {
+      "id": "APP-01",
+      "number": 4,
+      "url": "https://github.com/pedrobritx/ambientis/issues/4",
+      "title": "Inicializar Next.js, TypeScript e CI reproduzível",
+      "phase": "M1",
+      "priority": "P0",
+      "area": "platform",
+      "dependencies": [
+        "GOV-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Fixar versões compatíveis, Node LTS e um único lockfile.",
+        "Criar app mínimo e comandos dev, lint, typecheck, test, test:e2e e build.",
+        "CI executa lint, tipos, unidade e build sem segredos de produção.",
+        "Supabase local e seed fictício funcionam a partir de clone limpo."
+      ]
+    },
+    {
+      "id": "UX-01",
+      "number": 5,
+      "url": "https://github.com/pedrobritx/ambientis/issues/5",
+      "title": "Traduzir Meridian Terra em tokens e navegação acessível",
+      "phase": "M1",
+      "priority": "P1",
+      "area": "design",
+      "dependencies": [
+        "APP-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Recuperar referência visual aprovada ou registrar tokens propostos para aceite.",
+        "Implementar Início, Trabalho, captura, Acervo e Mais com layouts móvel e desktop.",
+        "Validar teclado, foco, contraste, zoom, leitor de tela e movimento reduzido.",
+        "Cobrir vazio, carregamento, falha, sessão expirada e conexão indisponível."
+      ]
+    },
+    {
+      "id": "AUTH-01",
+      "number": 6,
+      "url": "https://github.com/pedrobritx/ambientis/issues/6",
+      "title": "Implementar autenticação, recuperação e MFA",
+      "phase": "M1",
+      "priority": "P0",
+      "area": "security",
+      "dependencies": [
+        "APP-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Login, logout, recuperação e primeiro acesso possuem mensagens seguras.",
+        "Validar sessão no servidor e rotas autenticadas; redirects limitados.",
+        "Testar MFA e recuperação de conta; ações sensíveis exigem AAL2 no backend.",
+        "Não registrar tokens ou senhas nos logs."
+      ]
+    },
+    {
+      "id": "DB-01",
+      "number": 7,
+      "url": "https://github.com/pedrobritx/ambientis/issues/7",
+      "title": "Criar organizações, membros, escopos e políticas RLS",
+      "phase": "M1",
+      "priority": "P0",
+      "area": "data",
+      "dependencies": [
+        "AUTH-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Migrations versionadas criam núcleo, grants mínimos e RLS em tabelas expostas.",
+        "Testar usuário anônimo, duas organizações, membro removido e acesso direto via API.",
+        "Bloquear escalada de papel e referências entre tenants, inclusive FKs compostas.",
+        "Aprovação e auditoria não aceitam UPDATE direto pelo cliente."
+      ]
+    },
+    {
+      "id": "BASE-01",
+      "number": 8,
+      "url": "https://github.com/pedrobritx/ambientis/issues/8",
+      "title": "Cadastrar empresas, unidades, atividades e licenças",
+      "phase": "M2",
+      "priority": "P0",
+      "area": "base",
+      "dependencies": [
+        "DB-01",
+        "UX-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Separar cadastro permanente de processos por exercício.",
+        "Preservar CNPJ como texto, identificação de filial, localização e validade.",
+        "Arquivar sem perder referências; impedir duplicação dentro da organização.",
+        "Testar escopo de unidade, validação e edição concorrente."
+      ]
+    },
+    {
+      "id": "DOC-01",
+      "number": 9,
+      "url": "https://github.com/pedrobritx/ambientis/issues/9",
+      "title": "Criar acervo privado com versões e evidências",
+      "phase": "M2",
+      "priority": "P0",
+      "area": "documents",
+      "dependencies": [
+        "DB-01",
+        "BASE-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Buckets privados, URLs temporárias e políticas testadas para leitura/escrita.",
+        "Upload com limite, MIME validado e nome original preservado; nenhuma versão sobrescrita.",
+        "Hash, tamanho, autor e relação com requisito registrados após upload confirmado.",
+        "Falha parcial permite retomar sem duplicação; downloads respeitam organização."
+      ]
+    },
+    {
+      "id": "PROC-01",
+      "number": 10,
+      "url": "https://github.com/pedrobritx/ambientis/issues/10",
+      "title": "Modelar processos, requisitos, tarefas e auditoria",
+      "phase": "M2",
+      "priority": "P0",
+      "area": "workflow",
+      "dependencies": [
+        "BASE-01",
+        "DOC-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Processos têm tipo, exercício, versão de checklist e responsáveis.",
+        "Requisito liga dado, cálculo, evidência, revisão e protocolo.",
+        "Transições validadas em transação com evento de auditoria imutável ao usuário.",
+        "Duas alterações concorrentes retornam conflito explícito em vez de perda de dados."
+      ]
+    },
+    {
+      "id": "WASTE-01",
+      "number": 11,
+      "url": "https://github.com/pedrobritx/ambientis/issues/11",
+      "title": "Implementar correntes, estoques e movimentações de resíduos",
+      "phase": "M3",
+      "priority": "P0",
+      "area": "waste",
+      "dependencies": [
+        "PROC-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Correntes RS e movimentos têm unidade, período, origem e evidências.",
+        "Cálculo decimal de estoque inicial + geração − saídas = estoque final.",
+        "Distinguir medição, estimativa e conversão com memória e precisão.",
+        "Testar valores ausentes, zero, conversões incompatíveis e exercícios distintos."
+      ]
+    },
+    {
+      "id": "WASTE-02",
+      "number": 12,
+      "url": "https://github.com/pedrobritx/ambientis/issues/12",
+      "title": "Reconciliar MTR, CDF, pesagens e inventário",
+      "phase": "M3",
+      "priority": "P0",
+      "area": "waste",
+      "dependencies": [
+        "WASTE-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Relacionar MTR/CDF/NF/pesagem sem presumir relação um para um.",
+        "Exibir divergências e pendências; justificativa mantém autor e evidência.",
+        "Gerar base anual rastreável e checklist de inventário sem envio automático.",
+        "Testar parcial, duplicado, CDF ausente e balanço divergente; validar com responsável técnica."
+      ]
+    },
+    {
+      "id": "DOS-01",
+      "number": 13,
+      "url": "https://github.com/pedrobritx/ambientis/issues/13",
+      "title": "Entregar dossiê preliminar do primeiro fluxo de resíduos",
+      "phase": "M3",
+      "priority": "P1",
+      "area": "dossier",
+      "dependencies": [
+        "WASTE-02",
+        "DOC-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Uma jornada sintética percorre empresa → inventário → evidências → exportação.",
+        "Índice e manifest referenciam IDs, versões e hashes.",
+        "Exportação preliminar identifica pendências e não se apresenta como aprovada.",
+        "Teste compara arquivos exportados com manifest."
+      ]
+    },
+    {
+      "id": "RAPP-01",
+      "number": 14,
+      "url": "https://github.com/pedrobritx/ambientis/issues/14",
+      "title": "Modelar datasets e memórias de cálculo do RAPP",
+      "phase": "M4",
+      "priority": "P1",
+      "area": "rapp",
+      "dependencies": [
+        "WASTE-02",
+        "PROC-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Separar ano-base de ano de entrega; campos conforme enquadramento validado.",
+        "Toda quantidade tem fonte, fórmula, unidade, arredondamento e versão.",
+        "Conciliar resíduos com inventário e registrar divergências.",
+        "Revisão técnica valida regras e casos sintéticos; recibo externo permanece etapa explícita."
+      ]
+    },
+    {
+      "id": "WATER-01",
+      "number": 15,
+      "url": "https://github.com/pedrobritx/ambientis/issues/15",
+      "title": "Modelar pontos hídricos, medições e avaliação versionada",
+      "phase": "M4",
+      "priority": "P1",
+      "area": "water",
+      "dependencies": [
+        "PROC-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "RH, coordenadas e sistema de referência, equipamentos, vazão e regime registrados.",
+        "Cálculos individuais e cumulativos possuem fonte normativa, vigência e jurisdição.",
+        "Ausência de dados ou regra não validada resulta em requer revisão.",
+        "Não afirmar dispensa automática; testar limites e revisão pela responsável técnica."
+      ]
+    },
+    {
+      "id": "FIELD-01",
+      "number": 16,
+      "url": "https://github.com/pedrobritx/ambientis/issues/16",
+      "title": "Implementar vistoria e captura móvel online",
+      "phase": "M5",
+      "priority": "P1",
+      "area": "field",
+      "dependencies": [
+        "DOC-01",
+        "PROC-01",
+        "UX-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Capturar foto, medição, nota e pendência vinculadas a RS/RH/EF/FA.",
+        "Permitir identificação provisória sem exigir classificação final em campo.",
+        "Tratar permissão de câmera/localização negada com entrada manual.",
+        "Testar smartphone real, salvamento interrompido e upload retomável."
+      ]
+    },
+    {
+      "id": "OFF-01",
+      "number": 17,
+      "url": "https://github.com/pedrobritx/ambientis/issues/17",
+      "title": "Implementar fila offline com sincronização e conflitos",
+      "phase": "M5",
+      "priority": "P1",
+      "area": "offline",
+      "dependencies": [
+        "FIELD-01",
+        "DB-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Outbox IndexedDB usa chave idempotente e versão de registro.",
+        "Reconexão revalida acesso no servidor; revogação bloqueia sincronização.",
+        "Não sincronizar aprovações offline; conflitos exigem resolução explícita.",
+        "Testar fechamento, quota, duplicação, troca de conta e perda de rede; não prometer persistência absoluta."
+      ]
+    },
+    {
+      "id": "QA-01",
+      "number": 18,
+      "url": "https://github.com/pedrobritx/ambientis/issues/18",
+      "title": "Implementar gates QA-A a QA-G e revisão independente",
+      "phase": "M6",
+      "priority": "P0",
+      "area": "quality",
+      "dependencies": [
+        "RAPP-01",
+        "WATER-01",
+        "PROC-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Gates apresentam critérios, evidências, pendências e responsável.",
+        "QA-F exige revisor distinto do elaborador; operação solo fica aguardando revisão.",
+        "AAL2, permissão, versão e auditoria validados atomicamente.",
+        "Alteração de dados aprovados cria revisão e invalida a aprovação afetada."
+      ]
+    },
+    {
+      "id": "DOS-02",
+      "number": 19,
+      "url": "https://github.com/pedrobritx/ambientis/issues/19",
+      "title": "Gerar dossiê final versionado com protocolos e recibos",
+      "phase": "M6",
+      "priority": "P0",
+      "area": "dossier",
+      "dependencies": [
+        "QA-01",
+        "DOS-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Snapshot imutável inclui índice, manifest e versões exatas dos arquivos.",
+        "Exportação tem limite de tamanho, retomada/erro e benchmark antes de escolher worker.",
+        "Protocolado exige número/data/órgão; conclusão exige recibo e QA-G.",
+        "Testar adulteração de arquivo, ausência de evidência e acesso revogado durante download."
+      ]
+    },
+    {
+      "id": "OPS-02",
+      "number": 20,
+      "url": "https://github.com/pedrobritx/ambientis/issues/20",
+      "title": "Implementar backup externo e ensaiar restauração",
+      "phase": "M7",
+      "priority": "P0",
+      "area": "operations",
+      "dependencies": [
+        "DOC-01",
+        "DOS-02"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Backup cobre banco, Storage e manifest, com criptografia e acesso restrito.",
+        "Definir RPO/RTO com a usuária e medir restauração em ambiente isolado.",
+        "Confirmar separação de credenciais, retenção e alertas de falha.",
+        "Registrar custos; R2 é destino planejado sujeito a configuração e aceite."
+      ]
+    },
+    {
+      "id": "SEC-01",
+      "number": 21,
+      "url": "https://github.com/pedrobritx/ambientis/issues/21",
+      "title": "Validar segurança, privacidade e recuperação",
+      "phase": "M7",
+      "priority": "P0",
+      "area": "security",
+      "dependencies": [
+        "OFF-01",
+        "QA-01",
+        "OPS-02"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Reexecutar matriz RLS/RBAC/AAL2, escopo de Storage e revogação.",
+        "Verificar cache privado, logs sem dados técnicos pessoais e retenção local.",
+        "Documentar resposta a incidente e recuperação de conta/dispositivo.",
+        "Nenhum achado crítico de acesso indevido ou perda de dados permanece aberto."
+      ]
+    },
+    {
+      "id": "PILOT-01",
+      "number": 22,
+      "url": "https://github.com/pedrobritx/ambientis/issues/22",
+      "title": "Concluir piloto assistido e liberar operação",
+      "phase": "M7",
+      "priority": "P0",
+      "area": "product",
+      "dependencies": [
+        "OPS-01",
+        "SEC-01",
+        "DOS-02"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Responsável técnica executa jornada completa e valida conteúdo ambiental.",
+        "Validar acessibilidade móvel/desktop e recuperação de falhas.",
+        "Confirmar plano permitido, backups e checklist de release antes de dados reais.",
+        "Registrar aceite, limitações, métricas de uso/custo e rotina de manutenção."
+      ]
+    },
+    {
+      "id": "LATER-01",
+      "number": 23,
+      "url": "https://github.com/pedrobritx/ambientis/issues/23",
+      "title": "Avaliar evolução após piloto e manter backlog de melhorias",
+      "phase": "M7",
+      "priority": "P2",
+      "area": "product",
+      "dependencies": [
+        "PILOT-01"
+      ],
+      "initial_status": "Backlog",
+      "acceptance_criteria": [
+        "Priorizar com base no piloto: extração assistida, PDF consolidado, GIS e integrações oficiais.",
+        "IA produz sugestões com fonte e confirmação humana; core funciona sem IA.",
+        "Cada evolução exige benefício, custo, risco e critério de aceite.",
+        "Nenhuma automação guarda senha gov.br ou declara em nome da usuária sem fluxo autorizado."
+      ]
+    }
+  ]
+}
