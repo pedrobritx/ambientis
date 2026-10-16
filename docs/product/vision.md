@@ -42,4 +42,4 @@ Extração assistida por IA, PDF integral consolidado, mapas avançados, integra
 
 Pedro: responsável pelo produto e implementação. Responsável técnica: domínio, UX do trabalho e aceite profissional. Revisor independente: QA pré-protocolo, podendo ser colaborador convidado com escopo restrito. Usar uma só pessoa no início não autoriza simular uma segunda revisão.
 
-BSDL permanece a base filosófica/de design; Meridian, a metodologia de produto; BSF, os processos de construção. Meridian Terra orienta esta interface. Não há redefinição desses conceitos neste manual.
+Polaris permanece a base filosófica/de design; Meridian, a metodologia de produto; Axis, os processos de construção. Meridian Terra orienta esta interface. Não há redefinição desses conceitos neste manual.
