@@ -87,8 +87,25 @@ Repetir somente para URLs ausentes do manifest, inspecionando o resultado. Criar
 
 Referência: [visualizações de board no GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout).
 
-## Authenticated inventory — 2026-10-20
+## Verified configuration — 2026-10-20
 
-Project #12 was read successfully with authenticated GitHub access. It links this repository and contains the 23 issues plus three merged PRs. The existing 22 fields include Phase, Priority, Area and Target release. Status uses Todo / In progress / Done; reuse these values rather than replacing them. All issues have the expected phase/priority/area and native milestones M0–M7; milestone dates remain unset. Existing views are Monthly roadmap, Quarterly roadmap and Backlog. Preserve them. Seven native workflows are enabled, including auto-add, item closed, linked/merged PR and auto-close issue. Names/enabled flags alone do not prove their detailed configuration. In particular, never set Done on partially complete issues because auto-close may close them.
+Authenticated access confirmed that Project #12 links this repository, preserves all 23 original issue items and uses the existing 22 fields. Status remains Todo / In progress / Done; no existing option, view, item or milestone was deleted. Milestones M0–M7 retain empty dates. Example checks: #1 is M0/docs/P0 and #11 is M3/waste/P0; both are Todo pending their actual work. #4/#7 became Done when PR #27 merged.
 
-The API inventory does not yet prove every proposed view's grouping/sorting or reopened-item automation. Issue #2 stays open until those and branch protection are verified. This current inventory supersedes the historical access limitation above; it does not rewrite that delivery's evidence.
+The three existing views (Monthly roadmap, Quarterly roadmap, Backlog) remain intact. Eight additional views now implement the guide using existing status values:
+
+| View | Saved configuration |
+|---|---|
+| [01 — Visão geral](https://github.com/users/pedrobritx/projects/12/views/4) | Table, repository filter, Phase groups; Title/Status/Phase/Priority/Milestone/Assignees/Linked PRs |
+| [02 — Execução](https://github.com/users/pedrobritx/projects/12/views/5) | Board, exclude Done, Status columns, Priority ascending |
+| [03 — Roadmap](https://github.com/users/pedrobritx/projects/12/views/6) | Roadmap, Phase groups, existing Start date / Target date fields; no dates invented |
+| [04 — Backlog](https://github.com/users/pedrobritx/projects/12/views/7) | Table, Todo, Priority ascending |
+| [05 — Revisão e PRs](https://github.com/users/pedrobritx/projects/12/views/8) | Table, open PRs, Linked PRs and Assignees visible; avoids adding an unnecessary review status |
+| [06 — Bloqueios](https://github.com/users/pedrobritx/projects/12/views/9) | Table, `blocked` label; #1/#3 await explicit professional/operating decisions |
+| [07 — Marco atual](https://github.com/users/pedrobritx/projects/12/views/10) | Board, Phase M0, Status columns |
+| [08 — Entregues](https://github.com/users/pedrobritx/projects/12/views/11) | Table, Done, Milestone and Linked PRs visible |
+
+Native workflow settings were inspected in the authenticated UI: new items → Todo, closed items → Done, merged PRs → Done; auto-add targets `ambientis` with `is:issue,pr is:open`. Reopened issues/PRs now return to Todo. Eight workflows are enabled, including the existing linked-PR and auto-close rules. Auto-archive is not enabled. Never set Done on incomplete issues: the existing auto-close workflow can close them.
+
+Main protection is active and read back: PRs required, strict `local-review` and `database-api` checks from GitHub Actions (app 15368), resolved conversations, administrator enforcement, no force-push/deletion and zero mandatory outside approvals for the single-contributor workflow. Only checks that have actually passed were made required. No merge-method, automatic branch-deletion or repository-visibility setting was changed.
+
+This live record supersedes the historical access limitation above. It does not approve environmental rules, cost eligibility, recovery readiness or operational release.

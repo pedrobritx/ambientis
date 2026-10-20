@@ -75,6 +75,11 @@ after(async () => {
   }
 });
 
+test("local account creation stays disabled while seeded accounts can sign in", async () => {
+  const result = await client().auth.signUp({ email: `${randomUUID()}@ambientis.test`, password: "Ambientis-local-only-2026!" });
+  assert.equal(result.error?.code, "signup_disabled");
+  assert.equal(result.data.user, null);
+});
 test("anonymous and forged-token requests cannot read records", async () => {
   assert.equal((await api(null, "organizations")).status, 401);
   const response = await fetch(`${base}/api/v1/organizations`, { headers: { Authorization: "Bearer forged-token" } });
@@ -109,7 +114,9 @@ test("internal requirements, contacts, draft requests and audit remain hidden", 
   assert.equal((await rows("client-b", "requirements")).length, 0);
   assert.deepEqual(await rows("client-a", "company_contacts"), []);
   assert.deepEqual(await rows("client-a", "audit_events"), []);
-  assert.ok((await rows("client-a", "document_requests")).every((r) => r.status === "sent"));
+  const sharedRequests = await rows("client-a", "document_requests");
+  assert.ok(sharedRequests.length > 0);
+  assert.ok(sharedRequests.every((r) => r.status === "sent"));
   assert.ok((await rows("owner-a", "document_requests")).some((r) => r.status === "draft"));
 });
 test("direct Data API denies escalation, cross-tenant references and audit rewrites", async () => {

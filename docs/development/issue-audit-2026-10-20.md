@@ -5,12 +5,12 @@ Scope: all 23 open issues in `pedrobritx/ambientis`, inspected after merged PR #
 | Issue | Evidence or concrete remaining work | Disposition |
 |---|---|---|
 | #1 GOV-01 | Foundation/manual merged; Rafaela's technical review and accepted scope still pending. | Keep open |
-| #2 GOV-02 | Project #12 inspected: 23 issues, correct classifications, M0–M7 without invented dates. Native view/workflow configuration and branch protection require completion/read-back. | Keep open |
+| #2 GOV-02 | Project #12 inspected: 23 issues, correct classifications, M0–M7 without invented dates. All eight operational views added while preserving the three existing views. Overview/roadmap group by Phase, execution/backlog sort by Priority, date fields reuse existing empty fields. Eight native workflows include reopened → Todo. Both verified CI checks are required; PRs, resolved conversations and up-to-date branches are enforced, force-push/deletion blocked, with zero mandatory outside approvals. | Closure candidate after evidence read-back |
 | #3 OPS-01 | Vercel links exist; plan eligibility, approved operating limit and isolated previews need confirmation. | Keep open |
-| #4 APP-01 | Pinned app/commands/CI plus local CLI, migrated synthetic seed and clean-checkout validation in this change. | Closure candidate after merged evidence |
+| #4 APP-01 | Pinned app/commands/CI plus local CLI, migrated synthetic seed and clean-checkout validation in this change. | Closed by #27; fresh-stack correction and evidence in #28 |
 | #5 UX-01 | Forest Dawn/Dusk supersedes the original Terra reference; mobile/keyboard tests exist. Full screen-reader, session/failure and complete navigation acceptance remain. | Keep open; preserve the accepted Forest direction |
 | #6 AUTH-01 | Verified sign-in/logout exists. Recovery, first access, MFA and AAL2-sensitive operations remain. | Keep open |
-| #7 DB-01 | Versioned RLS/grants/composite keys/audit plus real Auth, direct PostgREST and Next API tests. Final approval is deliberately unavailable, including direct UPDATE. | Closure candidate for the implemented nucleus; #6 remains open |
+| #7 DB-01 | Versioned RLS/grants/composite keys/audit plus real Auth, direct PostgREST and Next API tests. Final approval is deliberately unavailable, including direct UPDATE. | Closed by #27 for the nucleus; #28 supplies fresh-stack correction; #6 remains open |
 | #8 BASE-01 | Company/contact/facility nucleus exists; activity/license inventory, archive workflow and full master-data criteria remain. | Keep open |
 | #9 DOC-01 | No connected private Storage/upload verification, resumability or tenant-safe signed downloads. | Keep open |
 | #10 PROC-01 | Initial process/requirement API exists; yearly checklist versions, assignments and transactional workflow are incomplete. | Keep open |
@@ -35,3 +35,11 @@ The professional review in #1 and full authentication lifecycle in #6 remain gat
 ## Verification record
 
 The PR records clean-install, SQL, real API, unit, browser and build results and CI URLs. Do not infer deployment or professional acceptance from them. The narrow local-mode option is covered by configuration tests that reject production, Vercel, non-loopback URLs, secret keys and missing opt-in.
+
+## Current acceptance evidence
+
+- PR #27 merged; #4 and #7 closed by its closing references. Its first fresh CI run exposed disabled email-provider login, so that run is **not** acceptance evidence.
+- Follow-up #28 keeps the email provider enabled while global signup stays disabled. GitHub Actions run [39423193437](https://github.com/pedrobritx/ambientis/actions/runs/39423193437) passes both `local-review` and `database-api` on `3bd713b`: clean checkout, `npm ci`, migrations/seed, rollback SQL, six real API scenarios, 51 unit tests, 20 Chromium scenarios and build.
+- A seventh API scenario subsequently verifies that signup remains disabled while seeded login works. Its current-head CI result must be recorded in the PR before merge.
+- Project #12 read-back verifies eleven views (three preserved plus eight operational), eight enabled workflows and correctly classified #1 (M0/docs/P0) and #11 (M3/waste/P0), both Todo. Native milestones M0–M7 have no dates. Issues #1/#3 carry the `blocked` label for professional-review and budget/eligibility decisions; no other issue is marked Done on partial evidence.
+- Main protection reads back `local-review` and `database-api` from GitHub Actions app 15368 with strict checks, required PR/conversation resolution and blocked force-push/deletion. Zero mandatory outside approvals avoids locking the sole contributor out of ordinary merges.

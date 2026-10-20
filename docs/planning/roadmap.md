@@ -1,6 +1,6 @@
 # Roadmap e milestones
 
-Plano por resultados, sem datas ou estimativas inventadas. Definir calendário após avaliar capacidade de execução e disponibilidade da usuária. M0–M7 são milestones **planejados**; a criação nativa está pendente em GOV-02.
+Outcome-based plan without invented dates or estimates. Native milestones M0–M7 already exist and their issue associations were verified on 2026-10-20. Due dates remain empty until capacity and availability are agreed. Project configuration and main protection are verified in [the GOV-02 record](github-project.md#verified-configuration--2026-10-20); that administrative completion does not satisfy the product exit gates below.
 
 | Fase | Entrega | Gate de saída |
 |---|---|---|
@@ -32,10 +32,10 @@ M5 pode começar depois de M2 sem aguardar todos os módulos de M4, respeitando 
 
 ## Próximas entregas concretas
 
-1. Revisar PR de fundação e decisões pendentes (#1).
-2. Desbloquear configuração do Project e confirmar plano/integração Vercel (#2 e #3).
-3. Implementar base executável (#4), então UX (#5) e identidade (#6–#7).
-4. Seguir a ordem de dependências no [backlog](backlog.md).
+1. Obtain the environmental professional’s review and accepted scope (#1). The foundation PRs are merged.
+2. Confirm professional-use hosting eligibility and the operating budget (#3). Project setup and main protection (#2) are configured; do not recreate them.
+3. Complete remaining UX/accessibility (#5) and authentication recovery/MFA (#6). The executable foundation (#4) and database nucleus (#7) were closed by #27; #28 supplies fresh-stack correction and verification.
+4. Continue master data, private evidence storage and the remaining process modules in [backlog dependency order](backlog.md).
 
 ## Regras de priorização
 

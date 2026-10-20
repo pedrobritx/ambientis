@@ -23,11 +23,11 @@ Sem branch develop permanente nesta fase. Hotfix também passa por PR e validaç
 
 Evitar duplicar status em muitos documentos: issues/Project são o estado vivo; roadmap define sequência e gates. Atualizar docs quando a arquitetura/escopo mudar.
 
-## Proteção de main — configuração pendente
+## Main protection — verified 2026-10-20
 
-Recomendar PR obrigatório, resolução de conversas, bloqueio de force-push e exclusão, e checks que já existam. Com um único desenvolvedor, não exigir aprovação de outro autor até haver revisor habilitado; isso evitaria bloquear todo merge. Revisão técnica ambiental independente continua obrigatória para QA-F do produto.
+PRs, resolved conversations and an up-to-date branch with the passing `local-review` and `database-api` GitHub Actions checks are required. Administrator enforcement is enabled; force-push and branch deletion are blocked. Zero mandatory outside approvals keeps the single-contributor workflow usable. Independent environmental QA-F acceptance remains a separate product gate.
 
-Ativar regras em GOV-02 após inspecionar configuração e compatibilidade do plano. Não alterar métodos de merge, excluir branches automaticamente ou tornar repositório privado neste PR.
+These GOV-02 settings are configured, not pending recommendations. See [the verified Project and protection record](docs/planning/github-project.md#verified-configuration--2026-10-20) before making changes. Existing merge methods, automatic branch-deletion settings and repository visibility were not changed.
 
 ## Segurança e conteúdo
 
