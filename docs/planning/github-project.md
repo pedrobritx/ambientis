@@ -2,7 +2,7 @@
 
 Destino: https://github.com/users/pedrobritx/projects/12
 
-**Estado:** issues criadas, Project não inspecionado por acesso autenticado. Consulta pública retornou 404, o que não prova inexistência. Integração GitHub disponível não expõe Projects, milestones ou configuração de repositório. GitHub CLI local está sem autenticação. Nenhuma view, campo, item, milestone nativo ou regra de proteção foi aplicada por esta entrega.
+**Historical foundation snapshot:** issues criadas, Project não inspecionado por acesso autenticado. Consulta pública retornou 404, o que não prova inexistência. Integração GitHub disponível não expõe Projects, milestones ou configuração de repositório. GitHub CLI local está sem autenticação. Nenhuma view, campo, item, milestone nativo ou regra de proteção foi aplicada por esta entrega.
 
 ## Procedimento seguro
 
@@ -86,3 +86,9 @@ gh project item-add 12 --owner pedrobritx --url https://github.com/pedrobritx/am
 Repetir somente para URLs ausentes do manifest, inspecionando o resultado. Criar/editar campos e milestones apenas depois do inventário. Este documento não executa importação e o CSV não pressupõe importador nativo.
 
 Referência: [visualizações de board no GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout).
+
+## Authenticated inventory — 2026-10-20
+
+Project #12 was read successfully with authenticated GitHub access. It links this repository and contains the 23 issues plus three merged PRs. The existing 22 fields include Phase, Priority, Area and Target release. Status uses Todo / In progress / Done; reuse these values rather than replacing them. All issues have the expected phase/priority/area and native milestones M0–M7; milestone dates remain unset. Existing views are Monthly roadmap, Quarterly roadmap and Backlog. Preserve them. Seven native workflows are enabled, including auto-add, item closed, linked/merged PR and auto-close issue. Names/enabled flags alone do not prove their detailed configuration. In particular, never set Done on partially complete issues because auto-close may close them.
+
+The API inventory does not yet prove every proposed view's grouping/sorting or reopened-item automation. Issue #2 stays open until those and branch protection are verified. This current inventory supersedes the historical access limitation above; it does not rewrite that delivery's evidence.

@@ -24,3 +24,23 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - run: npm run build
+
+  database-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Start disposable local services without printing local credentials
+        run: npm run db:start > "$RUNNER_TEMP/ambientis-db-start.log" 2>&1
+      - run: npm run db:test
+      - run: npm run test:api
+      - name: Stop local services while retaining their data
+        if: always()
+        run: npm run db:stop

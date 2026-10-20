@@ -1,54 +1,45 @@
-# Preparação do desenvolvimento
+# Development setup
 
-## Situação atual
+Use Node 24.21.0 (`.nvmrc`), npm 11.19.0 and the committed `package-lock.json`. `npm ci` installs exact versions, including Supabase CLI 2.121.0. No hosted credentials are required for the default demonstration or CI.
 
-A local synthetic review slice now runs with Node 24.21.0 and npm 11.19.0. `npm ci` installs the pinned lockfile; `npm run dev -- --port 3411` serves the app on 127.0.0.1. No secrets or cloud services are needed. Install Chromium with `npx playwright install chromium` before `npm run test:e2e`. Build with `NEXT_TELEMETRY_DISABLED=1 npm run build`; use `npm run start -- --port 3411` to serve a completed production build.
+## Application
 
-The npm commands below are executable. Supabase commands remain future work: no CLI configuration, database or policy tests are present. Docker's daemon was unavailable during the review work. The initialisation list is the remaining operational plan, not a prerequisite for reviewing the local app. See [local evidence](local-review.md) and [ADR 0008](../adr/0008-local-review-slice.md).
+```sh
+npm ci
+npm run dev -- --port 3411
+npm run lint
+npm run typecheck
+npm test
+npx playwright install chromium
+npm run test:e2e
+npm run build
+```
 
-## Inicialização em APP-01
+The synthetic review UI uses browser-local drafts. The separate `/conexao` flow uses the ignored hosted settings described in [connected-workspace.md](connected-workspace.md). Never replace an existing `.env.local` to run tests.
 
-1. Criar branch vinculada à issue #4; preservar README e docs.
-2. Selecionar versão estável do Next.js e Node LTS compatível. Registrar versões em package.json, lockfile e arquivo de versão do runtime.
-3. Usar TypeScript strict, App Router e src/. Adotar npm inicialmente para reduzir ferramentas; manter um único package-lock.json.
-4. Adicionar Tailwind e primitivas Radix apenas conforme os componentes surgirem. Adicionar React Hook Form/Zod para formulários concretos.
-5. Instalar/configurar Supabase CLI de desenvolvimento e runtime de contêineres local; inicializar config versionada.
-6. Criar .env.example com nomes e valores fictícios; preencher .env.local apenas na máquina.
-7. Criar scripts abaixo, testes mínimos significativos e workflow CI.
-8. Validar do zero em clone limpo e registrar comandos/resultados no PR.
+## Disposable local database and real API tests
 
-## Contrato de comandos
+Start a Docker-compatible container runtime, then run from this checkout:
 
-| Comando previsto | Resultado esperado |
-|---|---|
-| npm ci | Dependências exatamente do lockfile |
-| npm run dev | Aplicação local |
-| npm run lint | Verificação estática |
-| npm run typecheck | Tipos sem emissão |
-| npm test | Testes unitários |
-| npm run test:e2e | Jornadas Playwright |
-| npm run build | Build de produção |
-| supabase start | Serviços locais |
-| supabase test db | Testes de banco/políticas locais |
+```sh
+npm run db:start
+npm run db:test
+npm run test:api
+npm run db:stop
+```
 
-Recriar banco de teste somente em ambiente local descartável e explicitamente identificado. Nunca usar reset em banco remoto ou dados não descartáveis.
+The first start downloads images, applies every versioned migration and seeds four fictional Auth accounts, two consultancies and two independently scoped companies within the first consultancy. The fixed `@ambientis.test` accounts and test-only password are in `supabase/seed.sql`. They are deliberately public fixtures and must never be copied to a hosted project. Local signup and anonymous sign-in are disabled. Email is captured locally; no external emails are sent.
 
-## Configuração por ambiente
+Ports: API 54621, PostgreSQL 54622, local mail viewer 54624. The integration runner discovers this checkout's CLI status internally, refuses a non-loopback API, signs in the seeded users and starts a separate app on port 3421. Keep 3421 free. Its build output uses `.next-integration`; it does not terminate the user's preview or access its browser drafts. The runner passes local settings directly to the child process, overriding hosted `.env.local` values without editing that file. Local credentials and server output are not printed by the runner. `supabase start` itself prints local credentials, so redirect its output when collecting public evidence.
 
-- Browser: URL Supabase e chave publicável, protegidas por RLS.
-- Server: segredos administrativos somente se houver caso de uso aprovado.
-- Produção: valores no gerenciador de ambiente do Vercel; nenhum segredo no Git.
-- Preview: dados fictícios isolados ou modo demonstrativo, sem credenciais de produção.
-- Dev: Supabase local; gerar tipos e versioná-los após migrations.
+`SUPABASE_LOCAL_MODE=true` permits only `http://127.0.0.1:54621` with a publishable key in development/test. Production and Vercel retain the hosted HTTPS-only requirement. The application never receives a service-role credential. The integration harness uses the discovered **local** administrator only to revoke/restore a seeded membership; this is not an application capability.
 
-Nomes de variáveis e método SSR devem seguir os SDKs fixados em APP-01. Não copiar snippets legados sem conferir compatibilidade.
+`db:test` runs SQL assertions inside a rollback transaction through pgTAP. `test:api` exercises real Auth, PostgREST and Next route handlers, including anonymous/forged access, cross-tenant and same-consultancy isolation, sharing, role escalation, cross-tenant references, immutable audit, live revocation, server authorship and concurrent revision conflicts. API fixtures remain local and traceable; synthetic concurrency fixtures are archived after success. Repeated tests do not reset or delete databases.
 
-## CI planejada
+`db:stop` retains local database data. No reset, cloud link, remote migration or production seed command is part of these scripts. After changing a migration or seed, use a separately identified disposable stack or obtain approval before resetting an existing stack. Never reset a hosted project or an unidentified local database.
 
-PRs executam instalação reproduzível, lint, typecheck, testes unitários e build. Adicionar banco/RLS quando DB-01 existir e E2E quando houver jornada. Configurar permissões mínimas; PR de fork não recebe segredos. Migrations de produção ficam fora do CI de pull request.
+## CI and boundaries
 
-Não ativar checks obrigatórios de workflows que ainda não existem.
+`local-review` checks lint, TypeScript, Vitest, Chromium journeys and a production build. `database-api` starts fresh local services, runs SQL and actual API tests, then stops services even after failure. Neither job reads production secrets or deploys migrations. Fork PRs need no privileged credentials.
 
-## Connected foundation
-
-The local demonstration still runs without provider settings. The separate `/conexao` screen uses the ignored environment settings described in [connected-workspace.md](connected-workspace.md). No service-role key is required.
+A passing foundation does not implement password recovery/MFA, invitation administration, private Storage, final approval, technical calculations, backup recovery or professional acceptance. Track those in their own open issues. Do not use real client data before the operational gates pass.

@@ -28,3 +28,7 @@ The repository already has automatic Vercel deployment integrations. A branch-sp
 ## Verification
 
 Vitest executes the migrations against an embedded PostgreSQL runtime with synthetic Auth functions. SQL tests run in a rollback transaction on the selected Supabase project with `authenticated`/`anon` roles and synthetic claims. They check cross-organization and same-consultancy client isolation, sharing, forbidden writes, role escalation, foreign-key scope and immediate revocation. They do not establish a real end-user login, MFA or an independent penetration test.
+
+## Local verification follow-up (2026-10-20)
+
+Issue #4 adds a pinned CLI, disposable PostgreSQL 17/Auth/PostgREST configuration and synthetic seed. Issue #7 adds real seeded-user sign-ins and direct HTTP/API boundary tests, complementing the embedded and rollback SQL tests above. A strictly opt-in development loopback configuration leaves hosted production validation unchanged. These tests establish identity and database scope for the implemented nucleus; issue #6 remains open for recovery/MFA, and final approvals remain unavailable pending the QA workflow. See [setup](../development/setup.md).

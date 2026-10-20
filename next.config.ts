@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 const config: NextConfig = {
+  distDir: process.env.AMBIENTIS_INTEGRATION === "true" ? ".next-integration" : ".next",
   poweredByHeader: false,
   devIndicators: false,
   async headers() {

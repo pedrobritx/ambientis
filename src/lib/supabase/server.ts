@@ -13,8 +13,13 @@ export function configuration() {
   const key = process.env.SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key)
     throw new ApiError(503, "A conexão ainda não foi configurada.");
+  const local =
+    process.env.SUPABASE_LOCAL_MODE === "true" &&
+    process.env.NODE_ENV !== "production" &&
+    !process.env.VERCEL &&
+    url === "http://127.0.0.1:54621";
   if (
-    !/^https:\/\/[a-z0-9]+\.supabase\.co$/.test(url) ||
+    (!local && !/^https:\/\/[a-z0-9]+\.supabase\.co$/.test(url)) ||
     !key.startsWith("sb_publishable_")
   )
     throw new ApiError(503, "A configuração da conexão precisa ser conferida.");
