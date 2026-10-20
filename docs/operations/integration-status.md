@@ -1,6 +1,14 @@
 # Estado das integrações
 
-Linha de base: 01/10/2026, horário de São Paulo. Este registro não substitui verificação ao retomar o trabalho.
+## Current repository checkpoint — 2026-10-20
+
+Authenticated GitHub access verified Project #12, all 23 original issue items, native milestones M0–M7 without dates, eight operational views alongside the three preserved views, and eight enabled workflows including reopened → Todo. Main now requires PRs, resolved conversations and the passing `local-review`/`database-api` checks, with administrator enforcement and blocked force-push/deletion. No mandatory outside approval is required for the sole contributor. See the [verified GOV-02 configuration](../planning/github-project.md#verified-configuration--2026-10-20).
+
+PR #27 is merged. #4/#7 closed through that PR; #28 corrects local email-provider login and records fresh-stack SQL/API, application and repository-setup evidence. Hosting-plan eligibility/budget (#3), full recovery/MFA (#6), professional acceptance and the remaining operating gates are still open. The local test stack uses only synthetic accounts; it does not create hosted Auth accounts or reset cloud data.
+
+## Historical baseline — 2026-10-01
+
+The following table records the original delivery and is **not current configuration or a remaining task list**. The checkpoint above and later dated updates supersede it. Reverify live state when resuming provider work.
 
 | Integração            | Verificado                                                                                      | Pendente / limitação                                                                         |
 | --------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -18,9 +26,9 @@ Linha de base: 01/10/2026, horário de São Paulo. Este registro não substitui 
 
 A Next.js synthetic review app is implemented locally on `feat/local-review-workflow`. It has no authenticated hosting, identity, storage or messaging provider integration. Explicit read-only public BrasilAPI lookups for CNPJ, CEP and GO/DF municipalities are implemented and were spot-checked on 2026-10-19; returned suggestions require user review. See [registry and local invitation boundaries](../product/registry-invitations-preview.md). Earlier rows above remain a historical snapshot and have not been reverified as current service state. [Local checks and continuation](../development/local-review.md) describe the implemented scope and [operating considerations](initial-operating-considerations.md) record current reference limits. No deployment or service configuration was changed.
 
-## Como concluir a configuração
+## Remaining integration work
 
-Issue #2: obter acesso autenticado ao Project e seguir o guia de configuração com inventário prévio. Issue #3: verificar configuração detalhada do Vercel e adequação do plano. Não requer refazer as issues ou duplicar o repositório.
+Project access, native milestones, operational views and main protection from #2 are configured and read back; do not repeat their creation. Issue #3 still requires hosting-plan eligibility, budget and preview-isolation confirmation. Private Storage, first hosted account/MFA, backup recovery and professional acceptance remain separate work items. The historical snapshots below describe what each earlier delivery verified, not the current repository administration.
 
 Não foram apagados arquivos, registros, branches ou deployments. Fontes privadas do projeto ChatGPT foram apenas consultadas.
 
