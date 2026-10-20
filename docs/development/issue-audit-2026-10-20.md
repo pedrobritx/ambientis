@@ -5,7 +5,7 @@ Scope: all 23 open issues in `pedrobritx/ambientis`, inspected after merged PR #
 | Issue | Evidence or concrete remaining work | Disposition |
 |---|---|---|
 | #1 GOV-01 | Foundation/manual merged; Rafaela's technical review and accepted scope still pending. | Keep open |
-| #2 GOV-02 | Project #12 inspected: 23 issues, correct classifications, M0–M7 without invented dates. Native view/workflow configuration and branch protection require completion/read-back. | Keep open |
+| #2 GOV-02 | Project #12 inspected: 23 issues, correct classifications, M0–M7 without invented dates. Main protection now requires PRs, the existing `local-review` check, resolved conversations and an up-to-date branch; force-push/deletion are blocked, with zero mandatory outside approvals. Native view/workflow configuration remains. | Keep open |
 | #3 OPS-01 | Vercel links exist; plan eligibility, approved operating limit and isolated previews need confirmation. | Keep open |
 | #4 APP-01 | Pinned app/commands/CI plus local CLI, migrated synthetic seed and clean-checkout validation in this change. | Closure candidate after merged evidence |
 | #5 UX-01 | Forest Dawn/Dusk supersedes the original Terra reference; mobile/keyboard tests exist. Full screen-reader, session/failure and complete navigation acceptance remain. | Keep open; preserve the accepted Forest direction |

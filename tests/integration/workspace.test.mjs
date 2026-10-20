@@ -109,7 +109,9 @@ test("internal requirements, contacts, draft requests and audit remain hidden", 
   assert.equal((await rows("client-b", "requirements")).length, 0);
   assert.deepEqual(await rows("client-a", "company_contacts"), []);
   assert.deepEqual(await rows("client-a", "audit_events"), []);
-  assert.ok((await rows("client-a", "document_requests")).every((r) => r.status === "sent"));
+  const sharedRequests = await rows("client-a", "document_requests");
+  assert.ok(sharedRequests.length > 0);
+  assert.ok(sharedRequests.every((r) => r.status === "sent"));
   assert.ok((await rows("owner-a", "document_requests")).some((r) => r.status === "draft"));
 });
 test("direct Data API denies escalation, cross-tenant references and audit rewrites", async () => {
