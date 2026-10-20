@@ -1,4 +1,6 @@
 begin;
+create extension if not exists pgtap with schema extensions;
+select extensions.plan(1);
 create function pg_temp.assert_true(value boolean, message text) returns void language plpgsql as $$ begin if value is distinct from true then raise exception 'Assertion failed: %',message; end if; end $$;
 insert into auth.users(id) values ('f0000000-0000-4000-8000-000000000001'),('f0000000-0000-4000-8000-000000000002'),('f0000000-0000-4000-8000-000000000003');
 select set_config('request.jwt.claims','{"sub":"f0000000-0000-4000-8000-000000000001","role":"authenticated"}',true);
@@ -37,5 +39,6 @@ reset role;
 set local role anon;
 do $$ begin begin perform * from public.companies; raise exception 'Anonymous read allowed'; exception when insufficient_privilege then null; end; end $$;
 reset role;
-select 'PASS: isolation, sharing, grants, revocation, cross-tenant integrity; all test data rolled back' as result;
+select extensions.pass('Isolation, sharing, grants, revocation and cross-tenant integrity');
+select * from extensions.finish();
 rollback;

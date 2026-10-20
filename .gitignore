@@ -20,3 +20,6 @@ supabase/.branches/
 
 # Incremental TypeScript state
 *.tsbuildinfo
+
+# Isolated local API integration server
+.next-integration/
