@@ -1,0 +1,80 @@
+/* Forest colour roles from Meridian's original Grass / Living Environments contract.
+   Source revision d16ad6136c141a390a9310bf547128b873fc8771.
+   Ambientis adopts this visual language only, not experimental Lab behaviour. */
+:root {
+  --page: var(--ambientis-color-f4f6f2);
+  --surface: var(--ambientis-color-fcfdf9);
+  --sunken: var(--ambientis-color-e4ece6);
+  --ink: var(--ambientis-color-1c302c);
+  --secondary: var(--ambientis-color-405b53);
+  --muted: var(--ambientis-color-526a63);
+  --primary: var(--ambientis-color-235d50);
+  --primary-hover: var(--ambientis-color-17483e);
+  --on-primary: var(--ambientis-color-fcfdf9);
+  --line: var(--ambientis-color-b9cdc3);
+  --control: var(--ambientis-color-526a63);
+  --sage: var(--ambientis-color-e4ece6);
+  --amber-bg: var(--ambientis-color-f5e9dd);
+  --amber: var(--ambientis-color-854629);
+  --error-bg: var(--ambientis-color-f4e6e8);
+  --error: var(--ambientis-color-7a2d3a);
+  --success-bg: var(--ambientis-color-e4ece6);
+  --success: var(--ambientis-color-465638);
+  --focus: var(--ambientis-color-235d50);
+  --shadow: rgba(16, 31, 38, 0.14);
+  --edge: rgba(252, 253, 249, 0.92);
+  --radius: 24px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-appearance="dawn"]) {
+    --page: var(--ambientis-color-101f26);
+    --surface: var(--ambientis-color-1a3038);
+    --sunken: var(--ambientis-color-142830);
+    --ink: var(--ambientis-color-ebf4ee);
+    --secondary: var(--ambientis-color-bdcec8);
+    --muted: var(--ambientis-color-a4bab2);
+    --primary: var(--ambientis-color-a5ddca);
+    --primary-hover: var(--ambientis-color-c2ebdd);
+    --on-primary: var(--ambientis-color-101f26);
+    --line: var(--ambientis-color-4e6d70);
+    --control: var(--ambientis-color-a4bab2);
+    --sage: var(--ambientis-color-142830);
+    --amber-bg: var(--ambientis-color-3c3026);
+    --amber: var(--ambientis-color-e8b88a);
+    --error-bg: var(--ambientis-color-412b35);
+    --error: var(--ambientis-color-edadb6);
+    --success-bg: var(--ambientis-color-18372c);
+    --success: var(--ambientis-color-98c3a4);
+    --focus: var(--ambientis-color-a5ddca);
+    --shadow: rgba(16, 31, 38, 0.32);
+    --edge: rgba(186, 230, 216, 0.34);
+    color-scheme: dark;
+  }
+}
+
+/* A saved manual selection takes precedence over the system appearance. */
+:root[data-appearance="dusk"] {
+  --page: var(--ambientis-color-101f26);
+  --surface: var(--ambientis-color-1a3038);
+  --sunken: var(--ambientis-color-142830);
+  --ink: var(--ambientis-color-ebf4ee);
+  --secondary: var(--ambientis-color-bdcec8);
+  --muted: var(--ambientis-color-a4bab2);
+  --primary: var(--ambientis-color-a5ddca);
+  --primary-hover: var(--ambientis-color-c2ebdd);
+  --on-primary: var(--ambientis-color-101f26);
+  --line: var(--ambientis-color-4e6d70);
+  --control: var(--ambientis-color-a4bab2);
+  --sage: var(--ambientis-color-142830);
+  --amber-bg: var(--ambientis-color-3c3026);
+  --amber: var(--ambientis-color-e8b88a);
+  --error-bg: var(--ambientis-color-412b35);
+  --error: var(--ambientis-color-edadb6);
+  --success-bg: var(--ambientis-color-18372c);
+  --success: var(--ambientis-color-98c3a4);
+  --focus: var(--ambientis-color-a5ddca);
+  --shadow: rgba(16, 31, 38, 0.32);
+  --edge: rgba(186, 230, 216, 0.34);
+  color-scheme: dark;
+}

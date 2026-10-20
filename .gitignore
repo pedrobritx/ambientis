@@ -17,3 +17,6 @@ supabase/.branches/
 # Machine files
 .DS_Store
 *.log
+
+# Incremental TypeScript state
+*.tsbuildinfo

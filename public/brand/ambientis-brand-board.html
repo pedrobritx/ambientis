@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>Ambientis · prancha da marca</title>
+  <style>
+    @font-face {
+      font-family: Manrope;
+      src: url(fonts/manrope-400.woff2);
+    }
+    @font-face {
+      font-family: Manrope;
+      src: url(fonts/manrope-700.woff2);
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: Fraunces;
+      src: url(fonts/fraunces-400.woff2);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #f4f6f2;
+      color: #1c302c;
+      font-family: Manrope, sans-serif;
+    }
+    main {
+      max-width: 1440px;
+      margin: auto;
+      padding: 48px 64px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    header img {
+      width: 220px;
+    }
+    small,
+    .label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 28px;
+    }
+    .intro h1 {
+      font:
+        48px/1.15 Fraunces,
+        serif;
+      margin: 0;
+      max-width: 700px;
+    }
+    .intro p {
+      font-size: 14px;
+      max-width: 300px;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 20px;
+    }
+    .lockup,
+    .symbol,
+    .type,
+    .icons {
+      border: 1px solid #c5cfc6;
+      border-radius: 28px;
+      background: #fcfdf9;
+      padding: 28px;
+    }
+    .lockup {
+      height: 240px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .lockup > img {
+      width: 82%;
+      max-width: 540px;
+    }
+    .label {
+      position: absolute;
+      bottom: 22px;
+      left: 28px;
+    }
+    .symbol {
+      height: 240px;
+      background: #101f26;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 24px;
+    }
+    .symbol img:first-child {
+      width: 125px;
+    }
+    .symbol img:last-child {
+      width: 110px;
+      border-radius: 25px;
+    }
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #c5cfc6;
+      margin: 20px 0;
+    }
+    .swatch {
+      height: 130px;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .swatch b {
+      font-size: 13px;
+    }
+    .swatch span {
+      font-size: 12px;
+    }
+    .ink-light {
+      color: #f4f6f2;
+    }
+    .type {
+      height: 160px;
+    }
+    .type .editorial {
+      font:
+        32px Fraunces,
+        serif;
+      margin: 14px 0 0;
+    }
+    .type .ui {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 14px 0 0;
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .icons img {
+      width: 28px;
+      height: 28px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-top: 22px;
+      color: #425d54;
+    }
+    @media (max-width: 700px) {
+      main {
+        padding: 24px;
+      }
+      .intro {
+        display: block;
+      }
+      .intro h1 {
+        font-size: 36px;
+      }
+      .intro p {
+        margin-top: 16px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      header {
+        gap: 16px;
+      }
+      header small {
+        font-size: 9px;
+      }
+      .palette {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .icons {
+        flex-wrap: wrap;
+      }
+      .type {
+        height: auto;
+      }
+      footer {
+        display: block;
+        line-height: 1.7;
+      }
+    }
+  </style>
+  <main>
+    <header>
+      <img src="ambientis-logo-forest.svg" alt="Ambientis" /><small
+        >Identidade visual · Meridian Forest</small
+      >
+    </header>
+    <div class="intro">
+      <h1>Ambiente para um<br />trabalho bem cuidado.</h1>
+      <p>
+        Formas orgânicas, informação clara e continuidade entre evidência,
+        revisão e entrega.
+      </p>
+    </div>
+    <div class="grid">
+      <section class="lockup" aria-label="Logo principal">
+        <img
+          src="ambientis-logo-forest.svg"
+          alt="Logo horizontal Ambientis"
+        /><span class="label">Logo principal · nome em curvas</span>
+      </section>
+      <section class="symbol" aria-label="Símbolo e ícone">
+        <img src="ambientis-symbol-reverse.svg" alt="Símbolo reverso" /><img
+          src="ambientis-app-icon.svg"
+          alt="Ícone do aplicativo"
+        />
+      </section>
+    </div>
+    <section class="palette" aria-label="Paleta Forest">
+      <div class="swatch ink-light" style="background: #235d50">
+        <b>Pinho</b><span>#235D50</span>
+      </div>
+      <div class="swatch ink-light" style="background: #1c302c">
+        <b>Tinta</b><span>#1C302C</span>
+      </div>
+      <div class="swatch" style="background: #f4f6f2">
+        <b>Porcelana</b><span>#F4F6F2</span>
+      </div>
+      <div class="swatch" style="background: #fcfdf9">
+        <b>Papel</b><span>#FCFDF9</span>
+      </div>
+      <div class="swatch" style="background: #a5ddca">
+        <b>Menta</b><span>#A5DDCA</span>
+      </div>
+      <div class="swatch ink-light" style="background: #101f26">
+        <b>Noite</b><span>#101F26</span>
+      </div>
+    </section>
+    <div class="grid">
+      <section class="type">
+        <small>Fraunces · editorial</small>
+        <p class="editorial">Cuidar também é registrar bem.</p>
+      </section>
+      <section class="type">
+        <small>Manrope · interface e leitura</small>
+        <p class="ui">Solicitar, conferir, continuar.</p>
+      </section>
+    </div>
+    <section class="icons" aria-label="Conjunto de ícones">
+      <img src="icons/inicio.svg" alt="inicio" /><img
+        src="icons/empresas.svg"
+        alt="empresas"
+      /><img src="icons/trabalhos.svg" alt="trabalhos" /><img
+        src="icons/evidencias.svg"
+        alt="evidencias"
+      /><img src="icons/pessoas.svg" alt="pessoas" /><img
+        src="icons/notificacoes.svg"
+        alt="notificacoes"
+      /><img src="icons/atencao.svg" alt="atencao" /><img
+        src="icons/revisao.svg"
+        alt="revisao"
+      /><img src="icons/enviar.svg" alt="enviar" /><img
+        src="icons/camera.svg"
+        alt="camera"
+      /><img src="icons/fotos.svg" alt="fotos" /><img
+        src="icons/baixar.svg"
+        alt="baixar"
+      /><img src="icons/acesso.svg" alt="acesso" />
+    </section>
+    <footer>
+      <span>Proposta 0.1 · 19 de outubro de 2026 · Em avaliação</span
+      ><span
+        >Símbolo original Ambientis · Guia completo e aplicações no kit</span
+      >
+    </footer>
+  </main>
+</html>

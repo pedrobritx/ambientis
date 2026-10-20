@@ -2,6 +2,10 @@
 
 Este manual transforma as decisões iniciais em uma sequência executável. É um plano de implementação, não uma declaração de funcionalidades prontas.
 
+## Local review application
+
+The repository now also contains a synthetic, browser-only review implementation. [Run and inspect it](development/local-review.md). This does not complete the operational milestones below or authorise real client data. Meridian Forest is the current visual guideline; [ADR 0008](adr/0008-local-review-slice.md) records this update.
+
 ## Ordem de leitura
 
 | Documento | Pergunta que responde |
@@ -45,3 +49,7 @@ Cada fase tem critérios no [roadmap](planning/roadmap.md). Não é necessário 
 ## Limites de autoridade
 
 Pedro decide produto, custos e arquitetura; a responsável técnica valida conteúdo e critérios ambientais. Revisão de software não substitui revisão profissional do dossiê. Exclusões destrutivas dependem de autorização explícita. Fontes privadas de planejamento não devem ser copiadas para este repositório público.
+
+## Connected workspace update
+
+See [setup and API](development/connected-workspace.md), [ADR 0009](adr/0009-connected-workspace-foundation.md), and [editable Figma design](design/README.md). The existing demo and connected foundation are separate adapters.

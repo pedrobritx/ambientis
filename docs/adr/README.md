@@ -10,6 +10,8 @@ ADRs registram contexto, decisão, alternativas, consequências e validação. �
 | [0004](0004-cost-and-environments.md) | Custo mínimo e ambientes isolados | Proposta que concilia a preferência mais recente com as condições de uso |
 | [0005](0005-progressive-offline.md) | PWA e offline progressivo | Direção recuperada; escopo proposto |
 | [0006](0006-quality-and-regulation.md) | Regras determinísticas e revisão independente | Direção recuperada; detalhamento proposto |
+| [0008](0008-local-review-slice.md) | Local review workflow and Meridian Forest | Implemented locally; professional/operational approval pending |
+| [0009](0009-connected-workspace-foundation.md) | Connected Supabase workspace foundation | Schema applied; application under review |
 | [0007](0007-delivery-records.md) | Issues, PRs e registro de decisões | Proposta |
 
 Após aceite, atualizar o status e registrar data/PR. Decisões substituídas permanecem acessíveis. Fontes e lacunas estão em [references](../references.md).
