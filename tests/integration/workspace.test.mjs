@@ -75,6 +75,11 @@ after(async () => {
   }
 });
 
+test("local account creation stays disabled while seeded accounts can sign in", async () => {
+  const result = await client().auth.signUp({ email: `${randomUUID()}@ambientis.test`, password: "Ambientis-local-only-2026!" });
+  assert.equal(result.error?.code, "signup_disabled");
+  assert.equal(result.data.user, null);
+});
 test("anonymous and forged-token requests cannot read records", async () => {
   assert.equal((await api(null, "organizations")).status, 401);
   const response = await fetch(`${base}/api/v1/organizations`, { headers: { Authorization: "Bearer forged-token" } });
