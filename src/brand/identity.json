@@ -1,0 +1,22 @@
+{
+  "name": "ambientis",
+  "version": "0.1-proposal",
+  "tagline": "Ambiente para um trabalho bem cuidado.",
+  "markPath": "M14 52C6 52 5 46 5 35V29C5 12 14 4 29 4C46 4 56 15 56 33V51C56 56 58 59 60 61C46 63 40 55 40 43V32C40 22 36 17 30 17C20 17 12 33 8 43C19 33 36 37 40 52Z",
+  "palette": {
+    "pine": "#235D50",
+    "ink": "#1C302C",
+    "porcelain": "#F4F6F2",
+    "paper": "#FCFDF9",
+    "mint": "#A5DDCA",
+    "night": "#101F26"
+  },
+  "typography": {
+    "interface": "Manrope",
+    "editorial": "Fraunces",
+    "wordmarkWeight": 700
+  },
+  "clearSpace": "One quarter of symbol height on every side",
+  "minimumSize": { "symbolPx": 24, "lockupPx": 144 },
+  "source": "Original Ambientis symbol; Meridian Forest visual and interaction guidelines at d16ad6136c141a390a9310bf547128b873fc8771"
+}

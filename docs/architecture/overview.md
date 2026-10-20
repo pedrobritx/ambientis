@@ -1,5 +1,11 @@
 # Arquitetura e responsabilidades
 
+## Current local review boundary
+
+[ADR 0008](../adr/0008-local-review-slice.md) adds a browser-only synthetic review adapter. It uses Next.js/React/TypeScript, native forms/dialog, Zod domain validation and localStorage. Domain commands and dossier generation are separate from the UI. [ADR 0009](../adr/0009-connected-workspace-foundation.md) adds a separate Supabase Auth/API/database foundation. The demo is not automatically migrated; private cloud files, release workflows and PWA remain pending. The architecture below remains the operational target; browser role filtering is not evidence of RLS.
+
+The current visual adaptation is Meridian Forest. Native CSS and HTML primitives deliberately avoid adding the planned UI/form libraries before they are needed. Exact versions are pinned in package.json/package-lock.json and `.nvmrc`.
+
 ## Arquitetura alvo
 
 Monólito modular em Next.js App Router/TypeScript. PostgreSQL é a fonte dos registros; Supabase Auth cuida da identidade; Storage privado mantém arquivos. Regras ambientais e cálculos são determinísticos e testáveis. PWA é uma capacidade progressiva de campo.
@@ -23,7 +29,7 @@ RLS também se aplica quando a chamada vem do servidor com sessão da usuária. 
 | Camada | Escolha | Aplicação |
 |---|---|---|
 | Web | Next.js App Router + React + TypeScript | Um app e um ciclo de entrega |
-| UI | Tailwind + Radix + componentes próprios | Meridian Terra, acessibilidade e tokens centralizados |
+| UI | Tailwind + Radix + componentes próprios | Meridian Forest, acessibilidade e tokens centralizados |
 | Formulários | React Hook Form + Zod | Validação de entrada também no servidor |
 | Dados | Supabase JS + tipos gerados + migrations SQL | Sem ORM no início |
 | Auth | Supabase Auth, sessão e MFA | Identidade separada de autorização por organização/unidade |
@@ -73,7 +79,7 @@ Versões exatas e runtime serão fixados na inicialização APP-01 após teste c
 │   │   ├── storage/
 │   │   ├── logging/
 │   │   └── offline/
-│   ├── styles/                    # tokens Meridian Terra
+│   ├── styles/                    # tokens Meridian Forest
 │   └── messages/pt-BR/            # mensagens e rótulos
 ├── public/                        # somente recursos públicos da marca
 ├── supabase/

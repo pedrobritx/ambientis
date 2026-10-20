@@ -8,6 +8,10 @@ Empresa e unidade são permanentes. Processo representa um trabalho de determina
 
 **requisito → dado → cálculo → evidência → revisão → declaração → protocolo → recibo**
 
+## Current product review slice
+
+Before the operational milestones, Pedro authorised a synthetic review journey: company/unit and location/activity → editable illustrative checklist → company request/response → technical correction/acceptance → numbered PDF/XLSX/ZIP dossier. The limited client perspective, external-signing concept and guided manual review are part of this direction. Real signing, independent professional QA, automated document analysis and official calculations remain unimplemented. The responsible professional's validation is pending and her review conversation will be in Portuguese. [ADR 0008](../adr/0008-local-review-slice.md).
+
 ## Primeira entrega útil
 
 Cadastrar uma unidade fictícia, anexar evidências versionadas, registrar correntes e movimentos de resíduos, reconciliar divergências e exportar um inventário preliminar rastreável. Esse fluxo chega em M3; a liberação para operação real depende de M7.
@@ -42,4 +46,4 @@ Extração assistida por IA, PDF integral consolidado, mapas avançados, integra
 
 Pedro: responsável pelo produto e implementação. Responsável técnica: domínio, UX do trabalho e aceite profissional. Revisor independente: QA pré-protocolo, podendo ser colaborador convidado com escopo restrito. Usar uma só pessoa no início não autoriza simular uma segunda revisão.
 
-Polaris permanece a base filosófica/de design; Meridian, a metodologia de produto; Axis, os processos de construção. Meridian Terra orienta esta interface. Não há redefinição desses conceitos neste manual.
+Polaris permanece a base filosófica/de design; Meridian, a metodologia de produto; Axis, os processos de construção. The current local UI follows Meridian Forest, explicitly requested by Pedro on 2026-10-19; Terra is the earlier planning reference. Não há redefinição desses conceitos neste manual.

@@ -1,0 +1,38 @@
+/* Ambientis palette primitives; semantic roles remain in forest.css. */
+:root {
+  --ambientis-color-101f26: #101f26;
+  --ambientis-color-142830: #142830;
+  --ambientis-color-17483e: #17483e;
+  --ambientis-color-18372c: #18372c;
+  --ambientis-color-1a3038: #1a3038;
+  --ambientis-color-1c302c: #1c302c;
+  --ambientis-color-235d50: #235d50;
+  --ambientis-color-3c3026: #3c3026;
+  --ambientis-color-405b53: #405b53;
+  --ambientis-color-412b35: #412b35;
+  --ambientis-color-465638: #465638;
+  --ambientis-color-4e6d70: #4e6d70;
+  --ambientis-color-526a63: #526a63;
+  --ambientis-color-7a2d3a: #7a2d3a;
+  --ambientis-color-854629: #854629;
+  --ambientis-color-98c3a4: #98c3a4;
+  --ambientis-color-a4bab2: #a4bab2;
+  --ambientis-color-a5ddca: #a5ddca;
+  --ambientis-color-b9cdc3: #b9cdc3;
+  --ambientis-color-bdcec8: #bdcec8;
+  --ambientis-color-c2ebdd: #c2ebdd;
+  --ambientis-color-e4ece6: #e4ece6;
+  --ambientis-color-e8b88a: #e8b88a;
+  --ambientis-color-ebf4ee: #ebf4ee;
+  --ambientis-color-edadb6: #edadb6;
+  --ambientis-color-f4e6e8: #f4e6e8;
+  --ambientis-color-f4f6f2: #f4f6f2;
+  --ambientis-color-f5e9dd: #f5e9dd;
+  --ambientis-color-fcfdf9: #fcfdf9;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --radius-control: 16px;
+}

@@ -2,7 +2,9 @@
 
 ## Situação atual
 
-Há apenas documentação e templates. Os comandos npm abaixo são o contrato esperado para APP-01, ainda não executáveis neste repositório.
+A local synthetic review slice now runs with Node 24.21.0 and npm 11.19.0. `npm ci` installs the pinned lockfile; `npm run dev -- --port 3411` serves the app on 127.0.0.1. No secrets or cloud services are needed. Install Chromium with `npx playwright install chromium` before `npm run test:e2e`. Build with `NEXT_TELEMETRY_DISABLED=1 npm run build`; use `npm run start -- --port 3411` to serve a completed production build.
+
+The npm commands below are executable. Supabase commands remain future work: no CLI configuration, database or policy tests are present. Docker's daemon was unavailable during the review work. The initialisation list is the remaining operational plan, not a prerequisite for reviewing the local app. See [local evidence](local-review.md) and [ADR 0008](../adr/0008-local-review-slice.md).
 
 ## Inicialização em APP-01
 
@@ -46,3 +48,7 @@ Nomes de variáveis e método SSR devem seguir os SDKs fixados em APP-01. Não c
 PRs executam instalação reproduzível, lint, typecheck, testes unitários e build. Adicionar banco/RLS quando DB-01 existir e E2E quando houver jornada. Configurar permissões mínimas; PR de fork não recebe segredos. Migrations de produção ficam fora do CI de pull request.
 
 Não ativar checks obrigatórios de workflows que ainda não existem.
+
+## Connected foundation
+
+The local demonstration still runs without provider settings. The separate `/conexao` screen uses the ignored environment settings described in [connected-workspace.md](connected-workspace.md). No service-role key is required.
